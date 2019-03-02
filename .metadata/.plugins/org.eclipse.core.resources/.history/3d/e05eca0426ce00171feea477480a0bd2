@@ -1,0 +1,72 @@
+import java.awt.Canvas;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+
+public class ImageViewer1 {
+    public static void main(String[] args){
+        EventQueue.invokeLater(new Runnable()
+        {
+            public void run(){
+                ImageFrame frame1 = new ImageFrame();
+                frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame1.setVisible(true);
+
+
+            }
+        }
+        );
+    }
+}
+
+class ImageFrame1 extends JFrame{
+
+    public ImageFrame1(){
+        setTitle("ImageViewer");
+        setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+
+        ImageComponent component1 = new ImageComponent();
+        add(component1);
+
+    }
+
+    public static final int DEFAULT_WIDTH = 1300;
+    public static final int DEFAULT_HEIGHT = 800;
+}
+
+
+class ImageComponent1 extends JComponent{
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    private  Image image11;
+    //private Image image;
+    public ImageComponent1(){
+        try{
+            File image111 = new File("C:\\Users\\Sowmya Vasuki\\Pictures\\2016-10-02\\IMG_1103.JPG");
+            image11 = ImageIO.read(image111);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void paintComponent (Graphics g){
+        if(image11 == null) return;
+        int imageWidth = image11.getWidth(this);
+        int imageHeight = image11.getHeight(this);
+
+        g.drawImage(image11, 0, 0, this);
+
+        for (int i = 0; i*imageWidth <= getWidth(); i++)
+            for(int j = 0; j*imageHeight <= getHeight();j++)
+                if(i+j>0) g.copyArea(0, 0, imageWidth, imageHeight, i*imageWidth, j*imageHeight);
+    }
+
+}

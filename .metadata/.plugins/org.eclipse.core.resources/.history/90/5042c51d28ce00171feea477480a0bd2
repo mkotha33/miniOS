@@ -1,0 +1,131 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.SystemColor;
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Viewer {
+
+	private JFrame frame;
+	private JTextField txtImageViewer;
+	private JTextField txtImage;
+	private JTextField txtImage_1;
+	private JTextField txtImage_2;
+	private JTextField txtImage_3;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Viewer window = new Viewer();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Viewer() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		txtImageViewer = new JTextField();
+		txtImageViewer.setFont(new Font("Viner Hand ITC", Font.BOLD | Font.ITALIC, 13));
+		txtImageViewer.setBackground(SystemColor.inactiveCaption);
+		txtImageViewer.setText("Image Viewer");
+		txtImageViewer.setBounds(0, 0, 434, 20);
+		frame.getContentPane().add(txtImageViewer);
+		txtImageViewer.setColumns(10);
+		
+		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new	ImageViewer1().main(null);
+			}
+		});
+		button.setIcon(new ImageIcon("C:\\Users\\Sowmya Vasuki\\Downloads\\MiniOS-Lazzarus--master\\MiniOS-Lazzarus--master\\image.png"));
+		button.setBounds(10, 31, 64, 67);
+		frame.getContentPane().add(button);
+		
+		txtImage = new JTextField();
+		txtImage.setFont(new Font("Script MT Bold", Font.PLAIN, 11));
+		txtImage.setBackground(SystemColor.control);
+		txtImage.setText("Image1");
+		txtImage.setBounds(20, 101, 48, 20);
+		frame.getContentPane().add(txtImage);
+		txtImage.setColumns(10);
+		
+		JButton button_1 = new JButton("");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			new	ImageViewer().main(null);
+			}
+		});
+		button_1.setIcon(new ImageIcon("C:\\Users\\Sowmya Vasuki\\Downloads\\MiniOS-Lazzarus--master\\MiniOS-Lazzarus--master\\image.png"));
+		button_1.setBounds(106, 31, 64, 67);
+		frame.getContentPane().add(button_1);
+		
+		txtImage_1 = new JTextField();
+		txtImage_1.setFont(new Font("Script MT Bold", Font.PLAIN, 11));
+		txtImage_1.setText("Image2");
+		txtImage_1.setColumns(10);
+		txtImage_1.setBackground(SystemColor.menu);
+		txtImage_1.setBounds(116, 101, 48, 20);
+		frame.getContentPane().add(txtImage_1);
+		
+		JButton button_2 = new JButton("");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_2.setIcon(new ImageIcon("C:\\Users\\Sowmya Vasuki\\Downloads\\MiniOS-Lazzarus--master\\MiniOS-Lazzarus--master\\image.png"));
+		button_2.setBounds(202, 31, 64, 67);
+		frame.getContentPane().add(button_2);
+		
+		txtImage_2 = new JTextField();
+		txtImage_2.setFont(new Font("Script MT Bold", Font.PLAIN, 11));
+		txtImage_2.setText("Image3");
+		txtImage_2.setColumns(10);
+		txtImage_2.setBackground(SystemColor.menu);
+		txtImage_2.setBounds(212, 101, 48, 20);
+		frame.getContentPane().add(txtImage_2);
+		
+		JButton button_3 = new JButton("");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_3.setIcon(new ImageIcon("C:\\Users\\Sowmya Vasuki\\Downloads\\MiniOS-Lazzarus--master\\MiniOS-Lazzarus--master\\image.png"));
+		button_3.setBounds(292, 31, 64, 67);
+		frame.getContentPane().add(button_3);
+		
+		txtImage_3 = new JTextField();
+		txtImage_3.setFont(new Font("Script MT Bold", Font.PLAIN, 11));
+		txtImage_3.setText("Image4");
+		txtImage_3.setColumns(10);
+		txtImage_3.setBackground(SystemColor.menu);
+		txtImage_3.setBounds(302, 101, 48, 20);
+		frame.getContentPane().add(txtImage_3);
+	}
+}
